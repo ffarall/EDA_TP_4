@@ -1,10 +1,10 @@
-#include "parse.h"
-#include "eventClass.h"
+#include "JSON_object_parser.h"
+#include "JSON_event.h"
 
 void fsm_cycle(/*stateType*/int *current_state, const /*event_type*/int current_event, void *User_Data)
 {
-	evento ev;
-	const celltype_n FSMtable [EVENT_COUNT][STATE_COUNT] =
+	Event ev;
+	const fsmParserCell_n FSMtable [EVENT_COUNT][STATE_COUNT] =
 	//				WAIT_BRACE_OPEN						WAIT_NAME						WAIT_COLLON						WAIT_VALUE							WAIT_END
 
 	{	{	{ev.noAction, WAIT_NAME},			{ev.error, WAIT_NAME},			{ev.error, WAIT_COLLON},		{ev.fsm_BraceOpen, WAIT_END},		{ev.error, WAIT_END}		},	//	{
@@ -26,12 +26,12 @@ void fsm_cycle(/*stateType*/int *current_state, const /*event_type*/int current_
 	*current_state = (FSMtable[current_event][*current_state]).nextState;
 }
 
-void evento::noAction(void)
+void Event::noAction(void)
 {
 	return; //no hace nada
 }
 
-JSONMember_n evento::error(void *UserData)
+JSONMember_n Event::error(void *UserData)
 {
 	switch(ev.nextState) // se asigna el error correspondiente
 	{
@@ -55,13 +55,13 @@ JSONMember_n evento::error(void *UserData)
 	
 }
  
-JSONMember_n evento::finish(void)
+JSONMember_n Event::finish(void)
 {
 	instancia.err.type = FINISH_WITH_NO_ERROR; // se indica que se finalizo sin errores... en c no hay nada
 	return instancia;
 }
 
-void evento::fsm_Empty(void)
+void Event::fsm_Empty(void)
 {
 
 }

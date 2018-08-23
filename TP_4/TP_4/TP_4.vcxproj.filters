@@ -15,21 +15,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="JSON_object.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
     <ClInclude Include="JSON_event.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="JSON_object_parser.h">
+    <ClInclude Include="celltype.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="JSON_object.h">
+    <ClInclude Include="JSON_error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONFsmParser.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JSON_object_parser.cpp">
+    <ClCompile Include="JSON_object.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="JSON_object.cpp">
+    <ClCompile Include="JSON_event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JSONFsmParser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FsmJSONParserFEDE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

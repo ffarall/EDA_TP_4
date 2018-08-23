@@ -115,13 +115,17 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="JSON_object.h" />
+    <ClInclude Include="celltype.h" />
+    <ClInclude Include="JSONFsmParser.h" />
+    <ClInclude Include="JSON_error.h" />
     <ClInclude Include="JSON_event.h" />
-    <ClInclude Include="JSON_object_parser.h" />
+    <ClInclude Include="JSON_object.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FsmJSONParserFEDE.cpp" />
+    <ClCompile Include="JSONFsmParser.cpp" />
+    <ClCompile Include="JSON_event.cpp" />
     <ClCompile Include="JSON_object.cpp" />
-    <ClCompile Include="JSON_object_parser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
