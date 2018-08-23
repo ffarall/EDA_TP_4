@@ -115,10 +115,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="JSONObject.h" />
+    <ClInclude Include="JSON_object.h" />
+    <ClInclude Include="JSON_event.h" />
+    <ClInclude Include="JSON_object_parser.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="JSONObject.cpp" />
+    <ClCompile Include="JSON_object.cpp" />
+    <ClCompile Include="JSON_object_parser.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
