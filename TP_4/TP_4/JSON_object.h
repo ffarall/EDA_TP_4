@@ -30,7 +30,7 @@ typedef struct
 	string value;
 	valueData_n valueData;
 	JSONErrorType_n error;
-}JSONField_n;
+}JSONField_n;				//name:value   ()
 
 class JSONObject
 {
@@ -43,5 +43,7 @@ public:
 	JSONObject(string& s);
 	JSONObject(const char * s);
 	~JSONObject();
+
+	JSONField_n* get_pointer_to_field();
 };
 
