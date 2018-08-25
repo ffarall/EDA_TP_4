@@ -24,7 +24,7 @@ public:
 
 	void generate_event();
 	bool JSONParserEvent_is_event();
-	JSONParserEventTypes_n JSONParserEvent_get_next_event();
+	JSONParserEventTypes_n JSONParserEvent_get_event();
 	char JSONParserEvent_get_content();
 };
 

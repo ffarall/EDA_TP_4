@@ -6,11 +6,9 @@
 #include <iostream>
 #include "JSON_event.h"
 #include "JSON_error.h"
-#include "JSON_object.h"
 
 using namespace std;
 
-// void fsm_cycle(/*stateType*/int *current_state, const /*event_type*/int current_event, void *User_Data);
 #define JSON_PARSER_STATES_COUNT 5
 #define JSON_PARSER_EVENTS_COUNT 12
 #define MAX_FIELDS 100
@@ -63,14 +61,20 @@ class JSONFsmParser
 
 	JSONParserError_n error;
 	JSONParserStates_n currentState;
-	JSONParserEvent eventSource;
-	JSONObject objectDestination;
+	JSONParserEvent* eventSource;
+	JSONObject* objectDestination;
+
+	void fsm_cycle();
 	
 public:
 	JSONFsmParser();
 	~JSONFsmParser();
+
+	JSONFsmParser(JSONObject* JSONobj, JSONParserEvent* evSource);
 	JSONFsmParser(string& s);
 	JSONFsmParser(const char* s);
+	JSONFsmParser(string& s, JSONParserStates_n initState);
+	JSONFsmParser(const char* s, JSONParserStates_n initState);
 
 	JSONParserStates_n get_currentState();
 	JSONParserError_n get_error();
@@ -95,7 +99,7 @@ public:
 
 	void get_new_event();
 	bool JSONFsmParser_is_event();
-	JSONParserEventTypes_n JSONFsmParser_get_next_event();
+	JSONParserEventTypes_n JSONFsmParser_get_event();
 	char get_event_content();
 
 	void run_fsm();

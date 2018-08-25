@@ -8,13 +8,29 @@ JSONObject::JSONObject()
 	pToFirstField = nullptr;
 }
 
-JSONObject::JSONObject(string & s)
-{
-}
-
 
 JSONObject::~JSONObject()
 {
+}
+
+JSONObject::JSONObject(string & s)
+{
+	JSONSource = s;
+	fieldCount = 0;
+	pToFirstField = nullptr;
+}
+
+JSONObject::JSONObject(const char * s)
+{
+	JSONSource = s;
+	fieldCount = 0;
+	pToFirstField = nullptr;
+}
+
+void JSONObject::parse_JSON()
+{
+	JSONParserEvent evSource = JSONParserEvent(JSONSource);
+	JSONFsmParser parser = JSONFsmParser(this, &evSource);
 }
 
 JSONField * JSONObject::get_pointer_to_field()
