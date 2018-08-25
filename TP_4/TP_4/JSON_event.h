@@ -19,6 +19,10 @@ private:
 
 public:
 	JSONParserEvent();
+	JSONParserEvent(string& str);
+	JSONParserEvent(const char *str);
+
+	void generate_event();
 	bool JSONParserEvent_is_event();
 	JSONParserEventTypes_n JSONParserEvent_get_next_event();
 	char JSONParserEvent_get_content();

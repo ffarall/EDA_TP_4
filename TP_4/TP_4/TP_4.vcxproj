@@ -116,6 +116,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="celltype.h" />
+    <ClInclude Include="JSONField.h" />
     <ClInclude Include="JSONFsmParser.h" />
     <ClInclude Include="JSON_error.h" />
     <ClInclude Include="JSON_event.h" />
@@ -123,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="FsmJSONParserFEDE.cpp" />
+    <ClCompile Include="JSONField.cpp" />
     <ClCompile Include="JSONFsmParser.cpp" />
     <ClCompile Include="JSON_event.cpp" />
     <ClCompile Include="JSON_object.cpp" />
